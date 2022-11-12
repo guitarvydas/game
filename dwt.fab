@@ -1,0 +1,8 @@
+DrawioWithTabs {
+  main [mxFileBegin diagram+ mxFileEnd] = ‛«mxFileBegin»«diagram»«mxFileEnd»’
+  mxFileBegin [kopen cs+ kclose] = ‛«kopen»«cs»«kclose»’
+  mxFileEnd [kclose] = ‛«kclose»’
+  diagramBegin [kopen cs+ kclose] = ‛«kopen»«cs»«kclose»’
+  diagramEnd [kclose] = ‛«kclose»’
+  diagram [kopen cs+ kclose] = ‛«kopen»«cs»«kclose»’
+}

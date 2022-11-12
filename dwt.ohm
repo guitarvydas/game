@@ -1,0 +1,10 @@
+DrawioWithTabs {
+  main = mxFileBegin diagram+ mxFileEnd
+
+  mxFileBegin = "<mxfile" (~"<" ~">" any)+ ">"
+  mxFileEnd = "</mxfile>"
+
+  diagramBegin = "<diagram" (~"<" ~">" any)+ ">"
+  diagramEnd = "</diagram>"
+  diagram = diagramBegin (~"<" any)+ diagramEnd
+}
