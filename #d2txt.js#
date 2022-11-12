@@ -1,0 +1,18 @@
+var fs = require ('fs');
+var ohm = require ('ohm-js');
+
+var argv = require('yargs/yargs')(process.argv.slice(2)).argv;
+var drawio = fs.readFileSync (argv._[0], 'UTF-8');
+
+// npm install atob
+var atob = require ('atob');
+var data = atob(test);
+console.log (data.length);
+
+// npm install pako
+var pako = require ('pako');
+
+var inf = pako.inflateRaw (
+    Uint8Array.from (data, c=>c.charCodeAt (0)), {to: 'string'})
+var str = decodeURIComponent (inf);
+console.log (str);
