@@ -4,5 +4,5 @@ DrawioWithTabs {
   mxFileEnd [kclose] = ‛«kclose»’
   diagramBegin [kopen cs+ kclose] = ‛«kopen»«cs»«kclose»’
   diagramEnd [kclose] = ‛«kclose»’
-  diagram [kopen cs+ kclose] = ‛«kopen»«cs»«kclose»’
+  diagram [kopen cs+ kclose] = ‛«kopen»«uncompress (cs)»«kclose»’
 }

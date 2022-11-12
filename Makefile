@@ -6,11 +6,9 @@ full:
 	node uncompress.js game.drawio 2>/dev/null | sed -e 's/</\n</g' >_out.xml
 
 dev:
-	./fab/fab - DrawioWithTabs dwt.ohm dwt.fab --support='./support.js' <game.drawio
-
-devnext:
-	./fab/fab - DrawioWithTabs dwt.ohm dwt.fab --support='./support.js' <game.drawio >_out.js
-	~/node_modules/js-beautify/js/bin/js-beautify.js _out.js
+	./fab/fab - DrawioWithTabs dwt.ohm dwt.fab --support='./support.js' 2>/dev/null <game.drawio >_out0.js
+	sed -e 's/</\n</g' <_out0.js >_out.js
+	xmllint --format _out.js
 
 repos:
 	multigit -r
