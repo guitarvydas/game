@@ -3,7 +3,9 @@
 
 var fs = require ('fs');
 
-var test = fs.readFileSync ('test.txt', 'UTF-8');
+var argv = require('yargs/yargs')(process.argv.slice(2)).argv;
+//var test = fs.readFileSync ('test.txt', 'UTF-8');
+var test = fs.readFileSync (argv._[0], 'UTF-8');
 
 // npm install atob
 var atob = require ('atob');
