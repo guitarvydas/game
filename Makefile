@@ -3,12 +3,16 @@ all: dev
 install: npmstuff repos
 
 full:
-	node uncompress.js game.drawio 2>/dev/null | sed -e 's/</\n</g' >_out.xml
+	./fab/fab - DrawioWithTabs dwt.ohm dwt.fab --support='./support.js' 2>/dev/null <game.drawio >_out0.xml
+	sed -e 's/</\n</g' <_out0.xml >_out.xml
+	xmllint --format _out.xml
+	@rm _out0.xml
 
-dev:
-	./fab/fab - DrawioWithTabs dwt.ohm dwt.fab --support='./support.js' 2>/dev/null <game.drawio >_out0.js
-	sed -e 's/</\n</g' <_out0.js >_out.js
-	xmllint --format _out.js
+dev: 
+	./fab/fab - DrawioWithTabs dwt.ohm dwt.fab --support='./support.js' 2>/dev/null <containment.drawio >_out0.xml
+	sed -e 's/</\n</g' <_out0.xml >_out.xml
+	xmllint --format _out.xml
+	@rm _out0.xml
 
 repos:
 	multigit -r
@@ -16,4 +20,6 @@ repos:
 npmstuff:
 	npm install ohm-js yargs atob pako
 
+clean:
+	rm -f _out.*
 
